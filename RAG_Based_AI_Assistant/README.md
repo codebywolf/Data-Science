@@ -24,8 +24,8 @@ The system works by:
 
 ### 1. Clone this repository  
 ```bash
-git clone https://github.com/your-username/rag-sigma-ai.git
-cd rag-sigma-ai
+git clone https://github.com/codebywolf/Data-Science.git
+cd Data-Science/RAG_Based_AI_Assistant
 ```
 
 ### 2. Install dependencies  
