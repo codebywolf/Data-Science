@@ -1,13 +1,16 @@
 import pandas as pd
 from joblib import load
+import os
 
 # Load the trained machine learning models for the two demographic segments
-model_young = load('artifacts/model_young.joblib')
-model_rest = load('artifacts/model_rest.joblib')
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+model_young = load(os.path.join(BASE_DIR, 'artifacts', 'model_young.joblib'))
+model_rest = load(os.path.join(BASE_DIR, 'artifacts', 'model_rest.joblib'))
 
 # Load the corresponding scalers used during model training to ensure consistent feature scaling
-scaler_young = load('artifacts/scaler_young.joblib')
-scaler_rest = load('artifacts/scaler_rest.joblib')
+scaler_young = load(os.path.join(BASE_DIR, 'artifacts', 'scaler_young.joblib'))
+scaler_rest = load(os.path.join(BASE_DIR, 'artifacts', 'scaler_rest.joblib'))
 
 def calculate_normalization_risk(medical_history):
     """
