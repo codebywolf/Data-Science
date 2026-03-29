@@ -1,8 +1,5 @@
 __pycache__
-
-# IDE folders
+.pyc
 .idea/
 .vscode/
-
-# Environment files (Security)
 .env
