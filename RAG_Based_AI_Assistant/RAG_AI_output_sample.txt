@@ -1,0 +1,10 @@
+Our RAG_AI output looks like this:
+
+To help you with your query, let's break down what we know from the given data:
+
+1. Video Title: Introduction to CSS
+2. Video Number: 14
+3. Time Range: Start = 257.6 seconds, End = 259.6 seconds
+4. Content Summary: The video discusses the basics of CSS and its relevance.
+
+Given that the user asked "what is CSS", we can conclude that this question relates to the course content and is answered in Video #14 of Sigma Web Development Course.
