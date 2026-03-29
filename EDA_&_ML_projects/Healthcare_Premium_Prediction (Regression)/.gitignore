@@ -1,0 +1,10 @@
+__pycache__/
+*.py[cod]
+*$py.class
+
+# IDE folders
+.idea/
+.vscode/
+
+# Environment files (Security)
+.env
