@@ -65,23 +65,36 @@ To move beyond descriptive analytics, an unsupervised machine learning pipeline 
     *   **Churn Risks:** Recently active but low-frequency sellers who may require engagement to retain.
     *   **New Potentials:** New sellers with high initial sales, representing a growth opportunity.
 
-## How to Run
+## ⚙️ How to Run & Reproduce
 
-1.  **Clone Repository:**
+Follow these sequential steps to set up your local workspace, initialize the analytical database, and execute the full analytics pipeline:
+
+1. **Clone the Repository:**
+   
+    Open your terminal or Git Bash and clone the parent repository, then navigate into the specific project directory:
     ```bash
-    git clone <repository-url>
-    cd <repository-directory>
+    git clone https://github.com/codebywolf/Data-Science.git
+    cd Data-Science/SQL_projects/Retail_Customer_Segmentation_&_CLV_Analysis/
     ```
-2.  **Install Dependencies:**
+3.  **Install Dependencies:**
     ```bash
     pip install -r requirements.txt
     ```
-3.  **Run ETL Pipeline:**
+4.  **Run ETL Pipeline:**
+
     Execute the Python script to build the SQLite database from the raw datasets.
     ```bash
     python src/csv_to_db.py
     ```
-4.  **Execute SQL Scripts:**
-    Run the SQL scripts in the `sql/` directory in numerical order (01 to 04) against the `database/olist.db` file.
-5.  **Explore Notebooks:**
+5.  **Execute SQL Scripts:**
+
+    Open your database connection engine workbench and run the SQL migration scripts located in the sql/ directory in numerical order against the generated database/olist.db file:
+    ```bash
+    01_data_exploration.sql
+    02_rfm_scorecard_abt.sql
+    03_extended_view.sql
+    04_business_queries.sql
+    ```
+7.  **Explore Notebooks:**
+   
     Launch Jupyter and navigate to the `notebooks/` directory to step through the EDA and K-Means clustering analysis.
