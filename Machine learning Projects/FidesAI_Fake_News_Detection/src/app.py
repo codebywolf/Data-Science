@@ -4,7 +4,11 @@ import pandas as pd
 import streamlit as st
 import torch
 import gc
-sys.path.append(os.path.abspath("src"))
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))      # .../src
+PROJECT_ROOT = os.path.dirname(BASE_DIR)                    # one level up from src
+sys.path.append(BASE_DIR)
+
 from predict import ProductionInferenceEngine
 
 # Set Page Configurations
@@ -23,9 +27,9 @@ if "sandbox_label" not in st.session_state:
 @st.cache_resource
 def get_inference_engine():
     return ProductionInferenceEngine(
-        roberta_dir='artifacts/roberta_model/checkpoint-8232',
-        classical_model_path='artifacts/lr_model.joblib',
-        vertorizer_path='artifacts/tfidf_vectorizer.joblib'
+        roberta_dir=os.path.join(PROJECT_ROOT, 'artifacts', 'roberta_model', 'checkpoint-8232'),
+        classical_model_path=os.path.join(PROJECT_ROOT, 'artifacts', 'lr_model.joblib'),
+        vertorizer_path=os.path.join(PROJECT_ROOT, 'artifacts', 'tfidf_vectorizer.joblib')
     )
 engine = get_inference_engine()
 
@@ -41,7 +45,7 @@ st.write("---")
 st.subheader("💡 Quick-Test Suggestions Sandbox")
 st.markdown("<span style='font-size: 14px;'>**Purpose:** Provides instant, one-click article text for quick testing without needing to browse the web for test cases.\n**Dataset Context:** Extracted directly from a combined (WALFake + ISOT_True + ISOT_Fake) benchmark framework.\n**Model Integrity:** Every sample is drawn from the held-out validation pool and remains strictly unseen by both models to ensure completely unbiased testing.</span>", unsafe_allow_html=True)
 
-suggestions_path = './data/processed/sample_suggestions.csv'
+suggestions_path = os.path.join(PROJECT_ROOT, 'data', 'processed', 'sample_suggestions.csv')
 if os.path.exists(suggestions_path):
     def sample_generator(suggestions_df_path: str):
         df = pd.read_csv(suggestions_df_path)
